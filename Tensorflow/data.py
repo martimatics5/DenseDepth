@@ -7,7 +7,7 @@ from sklearn.utils import shuffle
 class DataLoader():
     def __init__(self, csv_file='data/nyu2_train.csv', DEBUG=False):
         self.shape_rgb = (480, 640, 3)
-        self.shape_depth = (240, 320, 1)
+        self.shape_depth = (480, 640, 1)
         self.read_nyu_data(csv_file, DEBUG=DEBUG)
 
     def nyu_resize(self, img, resolution=480, padding=6):

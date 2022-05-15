@@ -1,6 +1,8 @@
 import os, sys, glob, time, pathlib, argparse
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '5'
+#from tensorflow.python.client import device_lib
 
+#print(device_lib.list_local_devices())
 # Kerasa / TensorFlow
 from loss import depth_loss_function
 from utils import predict, save_images, load_test_data
@@ -9,7 +11,7 @@ from data import get_nyu_train_test_data, get_unreal_train_test_data
 from callbacks import get_nyu_callbacks
 
 from tensorflow.keras.optimizers import Adam
-#from keras.utils import multi_gpu_model
+#from tensorflow.keras.utils import multi_gpu_model
 from tensorflow.keras.utils import plot_model
 
 # Argument Parser
@@ -36,7 +38,7 @@ else:
     print('Will use ' + str(args.gpus) + ' GPUs.')
 
 # Create the model
-model = create_model( existing=args.checkpoint )
+model = create_model( existing=args.checkpoint, is_halffeatures=False)
 
 # Data loaders
 if args.data == 'nyu': train_generator, test_generator = get_nyu_train_test_data( args.bs )

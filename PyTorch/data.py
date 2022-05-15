@@ -86,7 +86,7 @@ class ToTensor(object):
         
         image = self.to_tensor(image)
 
-        depth = depth.resize((320, 240))
+        depth = depth.resize((640, 480))
 
         if self.is_test:
             depth = self.to_tensor(depth).float() / 1000

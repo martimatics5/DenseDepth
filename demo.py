@@ -233,7 +233,7 @@ class GLWidget(QtOpenGL.QGLWidget):
 
         # Load test frame from disk
         self.rgb = np.load('demo_rgb.npy')
-        self.depth = resize(np.load('demo_depth.npy'), (240,320))
+        self.depth = resize(np.load('demo_depth.npy'), (480,640))
         self.col_vbo = None
         self.pos_vbo = None
         self.updateRGBD()
